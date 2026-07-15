@@ -1,0 +1,443 @@
+/*
+ * Pareto Pro Enterprise — Visual Stylesheet
+ * ------------------------------------------
+ * Microsoft Fluent Design language. Rounded corners, soft shadows,
+ * modern typography. SVG-first; classes augment attribute styling.
+ *
+ * Class naming convention: .ppe-{component}-{element}[-{modifier}]
+ *   ppe = Pareto Pro Enterprise
+ */
+
+/* ============================================================
+   ROOT CONTAINER
+   ============================================================ */
+.ppe-root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+}
+
+/* ============================================================
+   THEME SURFACES
+   ============================================================ */
+.ppe-root.ppe-theme--light {
+    --ppe-bg: transparent;
+    --ppe-surface: #ffffff;
+    --ppe-surface-alt: #f5f7fa;
+    --ppe-text: #242424;
+    --ppe-text-muted: #616161;
+    --ppe-border: #e6e8eb;
+    --ppe-axis: #616161;
+    --ppe-grid: #e9ecef;
+    --ppe-grid-minor: #f0f2f5;
+    --ppe-shadow: rgba(0, 0, 0, 0.08);
+    --ppe-accent: #0078d4;
+    --ppe-accent-soft: rgba(0, 120, 212, 0.12);
+}
+
+.ppe-root.ppe-theme--dark {
+    --ppe-bg: transparent;
+    --ppe-surface: #2b2b2b;
+    --ppe-surface-alt: #333333;
+    --ppe-text: #ffffff;
+    --ppe-text-muted: #c8c8c8;
+    --ppe-border: #404040;
+    --ppe-axis: #c8c8c8;
+    --ppe-grid: #404040;
+    --ppe-grid-minor: #383838;
+    --ppe-shadow: rgba(0, 0, 0, 0.35);
+    --ppe-accent: #4db8ff;
+    --ppe-accent-soft: rgba(77, 184, 255, 0.18);
+}
+
+.ppe-root.ppe-theme--corporate {
+    --ppe-bg: transparent;
+    --ppe-surface: #ffffff;
+    --ppe-surface-alt: #f4f6f9;
+    --ppe-text: #1b2a4a;
+    --ppe-text-muted: #5a6a8a;
+    --ppe-border: #d8dee9;
+    --ppe-axis: #5a6a8a;
+    --ppe-grid: #e3e8ef;
+    --ppe-grid-minor: #eef1f6;
+    --ppe-shadow: rgba(27, 42, 74, 0.10);
+    --ppe-accent: #005a9e;
+    --ppe-accent-soft: rgba(0, 90, 158, 0.12);
+}
+
+/* ============================================================
+   HIGH CONTRAST
+   ============================================================ */
+.ppe-root.ppe-theme--hc {
+    --ppe-bg: Window;
+    --ppe-surface: Window;
+    --ppe-surface-alt: Window;
+    --ppe-text: WindowText;
+    --ppe-text-muted: WindowText;
+    --ppe-border: WindowText;
+    --ppe-axis: WindowText;
+    --ppe-grid: GrayText;
+    --ppe-grid-minor: GrayText;
+    --ppe-shadow: transparent;
+    --ppe-accent: Highlight;
+    --ppe-accent-soft: Highlight;
+}
+
+/* ============================================================
+   TITLE
+   ============================================================ */
+.ppe-title {
+    fill: var(--ppe-text);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+}
+
+.ppe-subtitle {
+    fill: var(--ppe-text-muted);
+    font-size: 11px;
+    font-weight: 400;
+}
+
+/* ============================================================
+   KPI CARD GRID
+   ============================================================ */
+.ppe-cards-layer {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.ppe-card {
+    flex: 1 1 0;
+    min-width: 0;
+    background: var(--ppe-surface);
+    border: 1px solid var(--ppe-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 3px var(--ppe-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.ppe-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px var(--ppe-shadow);
+}
+
+.ppe-card__value {
+    color: var(--ppe-text);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ppe-card__label {
+    color: var(--ppe-text-muted);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ppe-card__accent {
+    height: 3px;
+    width: 28px;
+    border-radius: 2px;
+    background: var(--ppe-accent);
+    margin-bottom: 6px;
+}
+
+/* ============================================================
+   CHART AREA
+   ============================================================ */
+.ppe-chart-layer {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    position: relative;
+}
+
+.ppe-chart {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Bars */
+.ppe-bar {
+    cursor: pointer;
+    transition: opacity 120ms ease, filter 120ms ease;
+    will-change: opacity;
+}
+
+.ppe-bar:hover {
+    filter: brightness(1.08);
+}
+
+.ppe-bar--dimmed {
+    opacity: 0.35;
+}
+
+.ppe-bar--selected {
+    filter: drop-shadow(0 0 0 var(--ppe-accent));
+    opacity: 1;
+}
+
+/* Pareto line */
+.ppe-pareto-line {
+    fill: none;
+    pointer-events: none;
+}
+
+.ppe-marker {
+    cursor: pointer;
+    transition: r 120ms ease;
+}
+
+.ppe-marker:hover {
+    filter: drop-shadow(0 1px 2px var(--ppe-shadow));
+}
+
+/* Axes */
+.ppe-axis text {
+    fill: var(--ppe-axis);
+    font-size: 11px;
+    font-family: inherit;
+}
+
+.ppe-axis path,
+.ppe-axis line {
+    stroke: var(--ppe-axis);
+    shape-rendering: crispEdges;
+}
+
+.ppe-axis-title {
+    fill: var(--ppe-text-muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Grid */
+.ppe-grid line {
+    stroke: var(--ppe-grid);
+    stroke-dasharray: 3 3;
+    shape-rendering: crispEdges;
+}
+
+.ppe-grid--minor line {
+    stroke: var(--ppe-grid-minor);
+    stroke-dasharray: 2 4;
+}
+
+/* ============================================================
+   TARGET & REFERENCE LINES
+   ============================================================ */
+.ppe-target-line,
+.ppe-reference-line {
+    pointer-events: none;
+}
+
+.ppe-target-label,
+.ppe-reference-label {
+    fill: var(--ppe-text-muted);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* ============================================================
+   DATA LABELS
+   ============================================================ */
+.ppe-label {
+    fill: var(--ppe-text);
+    font-size: 10px;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.ppe-label--percent {
+    fill: var(--ppe-accent);
+    font-weight: 600;
+}
+
+/* ============================================================
+   LEGEND
+   ============================================================ */
+.ppe-legend-layer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 6px 4px;
+    flex-shrink: 0;
+}
+
+.ppe-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ppe-text-muted);
+    font-size: 11px;
+}
+
+.ppe-legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.ppe-legend-text {
+    white-space: nowrap;
+}
+
+/* ============================================================
+   SUMMARY TABLE
+   ============================================================ */
+.ppe-table-layer {
+    flex-shrink: 0;
+    overflow: auto;
+    max-height: 220px;
+}
+
+.ppe-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    color: var(--ppe-text);
+}
+
+.ppe-table thead th {
+    position: sticky;
+    top: 0;
+    background: var(--ppe-surface-alt);
+    color: var(--ppe-text-muted);
+    text-align: left;
+    padding: 6px 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-size: 10px;
+    border-bottom: 1px solid var(--ppe-border);
+    z-index: 1;
+}
+
+.ppe-table tbody td {
+    padding: 5px 10px;
+    border-bottom: 1px solid var(--ppe-border);
+    white-space: nowrap;
+}
+
+.ppe-table tbody tr:nth-child(even) {
+    background: var(--ppe-surface-alt);
+}
+
+.ppe-table tbody tr:hover {
+    background: var(--ppe-accent-soft);
+}
+
+.ppe-table__abc {
+    display: inline-block;
+    min-width: 18px;
+    text-align: center;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 10px;
+}
+
+.ppe-table__abc--A { background: #107c10; }
+.ppe-table__abc--B { background: #ca5010; }
+.ppe-table__abc--C { background: #6c757d; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+.ppe-root.ppe-size--phone .ppe-cards-layer { gap: 4px; }
+.ppe-root.ppe-size--phone .ppe-card { padding: 6px 8px; }
+.ppe-root.ppe-size--phone .ppe-card__value { font-size: 14px; }
+.ppe-root.ppe-size--phone .ppe-card__label { font-size: 8px; }
+.ppe-root.ppe-size--phone .ppe-title { font-size: 13px; }
+
+.ppe-root.ppe-size--tablet .ppe-card__value { font-size: 16px; }
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+.ppe-root:focus {
+    outline: none;
+}
+
+.ppe-bar:focus,
+.ppe-marker:focus {
+    outline: 2px solid var(--ppe-accent);
+    outline-offset: 2px;
+}
+
+.ppe-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ============================================================
+   ERROR / EMPTY STATES
+   ============================================================ */
+.ppe-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--ppe-text-muted);
+    text-align: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.ppe-state__icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+    opacity: 0.6;
+}
+
+.ppe-state__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ppe-text);
+    margin-bottom: 4px;
+}
+
+.ppe-state__message {
+    font-size: 12px;
+    max-width: 320px;
+    line-height: 1.4;
+}
