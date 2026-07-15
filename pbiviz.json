@@ -1,0 +1,28 @@
+{
+  "visual": {
+    "name": "ParetoProEnterprise",
+    "displayName": "Pareto Pro Enterprise",
+    "guid": "PARETOPROENTERPRISE2D3F4A5B6C7D8E9F0A1B2C3",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "Production-grade Pareto Chart with ABC Analysis, Dynamic 80/20 Analysis, KPI Cards, Summary Table, Drill Down, Cross Filtering, Theme Engine, and Export. Superior to every Pareto chart available on Microsoft AppSource.",
+    "supportUrl": "https://github.com/pareto-pro-enterprise/pareto-pro-enterprise/issues",
+    "gitHubUrl": "https://github.com/pareto-pro-enterprise/pareto-pro-enterprise",
+    "powerBiDesktopIcon": "assets/icon.png"
+  },
+  "apiVersion": "5.7.0",
+  "author": {
+    "name": "Pareto Pro Enterprise",
+    "email": "support@pareto-pro-enterprise.com"
+  },
+  "assets": {
+    "icon": "assets/icon.png"
+  },
+  "externalJS": [],
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json",
+  "dependencies": {
+    "cranberry": false
+  },
+  "stringResources": []
+}

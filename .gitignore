@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Power BI Visual build output
+dist/
+.tmp/
+
+# Webpack / TS cache
+.cache/
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test coverage
+coverage/
+
+# Packaged visual output
+*.pbiviz
+*.zip
+
+# Local environment
+.env
+.env.local
